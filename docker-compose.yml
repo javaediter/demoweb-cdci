@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  demoweb:
+    image: my-demo-web
+    container_name: my-demo-web
+    hostname: my-demo-web
+    restart: always
+    ports:
+      - "8081:8081"
