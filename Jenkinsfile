@@ -20,4 +20,13 @@ pipeline{
             }
         }
     }
+
+    post{
+        success{
+            echo 'Author is ${author}'
+        }
+        failure{
+            echo 'Failure!!!'
+        }
+    }
 }
