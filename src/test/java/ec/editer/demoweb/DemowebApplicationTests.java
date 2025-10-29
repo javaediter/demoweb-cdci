@@ -27,4 +27,16 @@ class DemowebApplicationTests {
         //Assert
         Assertions.assertEquals(text.toUpperCase(), response.getBody());
     }
+    
+    @Test
+    public void getCountTest(){
+        //Arrange
+        String text = "Hello World!";
+        
+        //Act
+        ResponseEntity<Integer> response = controller.getCount(text);
+        
+        //Assert
+        Assertions.assertEquals((Integer)text.length(), response.getBody());
+    }
 }

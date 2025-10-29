@@ -24,7 +24,13 @@ public class HomeController {
     
     @GetMapping
     public ResponseEntity getResult(@RequestParam(name = "text", required = true) String text){
-        log.info(String.format("Origin text: %s", text));
+        log.info(String.format("getResult -> Origin text: %s", text));
         return ResponseEntity.ok(text.toUpperCase());
+    }
+    
+    @GetMapping("/count")
+    public ResponseEntity getCount(@RequestParam(name = "text", required = true) String text){
+        log.info(String.format("getCount -> Oring text: %s", text));
+        return ResponseEntity.ok(text.length());
     }
 }
