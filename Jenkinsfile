@@ -23,7 +23,7 @@ pipeline{
 
     post{
         success{
-            echo "Hoy es ${date} and the author is ${params.author}"
+            echo "The author is ${params.author}"
         }
         failure{
             echo 'Failure!!!'
