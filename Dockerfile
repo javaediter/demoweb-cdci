@@ -2,14 +2,14 @@ FROM openjdk:21-jdk-oracle
 
 RUN adduser demoapp
 
-USER demoapp
-
 WORKDIR /home/demoapp
 
 COPY target/*.jar demoapp.jar
 
-RUN echo '#! /bin/bash \njava -Xms512m -Xmx1024m -jar demoapp.jar' >> entrypoint.sh && chmod +x entrypoint.sh
+ENV JAVA_OPTS="-Xms256m -Xmx512m"
 
 EXPOSE 8081
 
-ENTRYPOINT ["/home/demoapp/entrypoint.sh"]
+USER demoapp
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar demoapp.jar"]
